@@ -1,13 +1,15 @@
 # monte-pi
 Approximation of π number using Monte Carlo method in Akka, spread between several physical nodes.
 
+![screenshot](montepi.png)
+
 ## Method
 Appromixation of π number using Monte Carlo method goes as follows:
 - we are using a circle of radius `R` inside a square of size `2R`
-- the area of the circle will be `PI*R^2`
-- area of the square will be `(2R)^2`
-- therefore the ratio of the area of the square to the area of the circle will be `PI/4`
-- it means that if we pick `N` points at random inside the square, approximately `N*PI/4` should fall inside the circle
+- the area of the circle will be `PI * R^2`
+- area of the square will be `(2 * R)^2`
+- therefore the ratio of the area of the square to the area of the circle will be `PI / 4`
+- it means that if we pick `N` points at random inside the square, approximately `N * PI / 4` should fall inside the circle
 - `PI = (4 * M) / N`, where `M` is number of points in the circle and `N` is the total number of points
 
 ## Model
