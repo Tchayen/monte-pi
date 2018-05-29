@@ -9,10 +9,6 @@ object Sampler extends Types {
   final case class Batch(values: GenSeq[Point])
 }
 
-abstract class RNG {
-  def random: Double
-}
-
 class SamplerActor(random: () => Double) extends Actor with Types {
   import Sampler._
 
