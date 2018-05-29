@@ -9,11 +9,15 @@ object Sampler extends Types {
   final case class Batch(values: GenSeq[Point])
 }
 
-class SamplerActor extends Actor with Types {
+abstract class RNG {
+  def random: Double
+}
+
+class SamplerActor(random: () => Double) extends Actor with Types {
   import Sampler._
 
   def generateSamples(n: Int) = {
-    Seq.fill(n)((math.random, math.random))
+    Seq.fill(n)((random(), random()))
   }
   def receive = {
     case GetBatch => sender ! Batch(generateSamples(batchSize))
