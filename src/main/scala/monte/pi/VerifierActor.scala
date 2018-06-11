@@ -18,3 +18,5 @@ class VerifierActor extends Actor with Types {
       sender ! InCircleCount(values.count(p => ((p._1 - 0.5) ^ 2) + ((p._2 - 0.5) ^ 2) < (0.5 ^ 2)))
   }
 }
+
+// To be deleted

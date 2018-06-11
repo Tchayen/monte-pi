@@ -19,3 +19,5 @@ class SamplerActor(random: () => Double) extends Actor with Types {
     case GetBatch => sender ! Batch(generateSamples(batchSize))
   }
 }
+
+// To be deleted
