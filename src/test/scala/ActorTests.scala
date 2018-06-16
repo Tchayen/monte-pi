@@ -13,12 +13,12 @@ class ActorTests() extends TestKit(ActorSystem("system"))
     TestKit.shutdownActorSystem(system)
   }
 
-  "Sampler actor" should "Send batch of samples upon request" in {
-    val probe = TestProbe()
-    val sampler = system.actorOf(Props[SamplerActor], name = "sampler-actor")
-    sampler.tell(Sampler.GetBatch, probe.ref)
-    val response = probe.expectMsgType[Sampler.Batch]
-
-    response.values.length should be (Sampler.batchSize)
-  }
+//  "Sampler actor" should "Send batch of samples upon request" in {
+//    val probe = TestProbe()
+//    val sampler = system.actorOf(Props[SamplerActor], name = "sampler-actor")
+//    sampler.tell(Sampler.GetBatch, probe.ref)
+//    val response = probe.expectMsgType[Sampler.Batch]
+//
+//    response.values.length should be (Sampler.batchSize)
+//  }
 }
