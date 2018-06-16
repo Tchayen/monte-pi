@@ -16,7 +16,7 @@ object Processor extends App {
     .take(n)
     .map(_.fire())
     .map(_.isAccurate(size))
-    .fold(new Stats(0, 0))((acc, x) => acc.update(x))
+    .fold(new DoublePiApproximator(0, 0))((acc, x) => acc.update(x))
     .map(_.getPi)
     .runWith(Sink.foreach(println))
 

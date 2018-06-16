@@ -1,7 +1,7 @@
 package monte.pi
 
-class Stats(val all: Int, val acc: Int) {
-  def update(accurate: Boolean): Stats = new Stats(all + 1, if (accurate) acc + 1 else acc)
+class DoublePiApproximator(val all: Int, val acc: Int) {
+  def update(accurate: Boolean): DoublePiApproximator = new DoublePiApproximator(all + 1, if (accurate) acc + 1 else acc)
 
   def getPi: Double = 4.0 * acc.toDouble / all.toDouble
 
