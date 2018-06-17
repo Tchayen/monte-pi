@@ -1,7 +1,8 @@
-import akka.actor.{ActorSystem, Props}
-import akka.testkit.{TestKit, TestProbe}
+package monte.pi
+
+import akka.actor.ActorSystem
+import akka.testkit.TestKit
 import org.scalatest._
-import monte.pi._
 
 class ActorTests() extends TestKit(ActorSystem("system"))
     with Matchers
