@@ -11,12 +11,14 @@ object Processor extends App {
   implicit val system = ActorSystem("processor_system")
   implicit val materializer = ActorMaterializer()
   implicit val size = 1
+  implicit val prec = 8
 
   def runCount(n: Int): Future[Done] = Source.repeat(new Shooter(size))
     .take(n)
     .map(_.fire())
     .map(_.isAccurate(size))
-    .fold(new DoublePiApproximator(0, 0))((acc, x) => acc.update(x))
+    //    .fold(DoublePiApproximator(0, 0))((acc, x) => acc.update(x))
+    .fold(BigDecimalPiApproximator(0, 0, prec))((acc, x) => acc.update(x))
     .map(_.getPi)
     .runWith(Sink.foreach(println))
 
@@ -46,5 +48,5 @@ object Processor extends App {
       .runWith(sink)
   }
 
-  runProgressive(1000000)
+  runProgressive(10000000)
 }

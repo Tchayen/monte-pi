@@ -11,3 +11,8 @@ class DoublePiApproximator(val all: Int, val acc: Int) {
 
   override def toString = s"π = $getPi\tΔ = $getDelta\t($acc/$all)"
 }
+
+object DoublePiApproximator {
+  def apply(all: Int, acc: Int): DoublePiApproximator =
+    new DoublePiApproximator(all, acc)
+}

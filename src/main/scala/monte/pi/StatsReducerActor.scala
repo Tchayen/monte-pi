@@ -18,7 +18,8 @@ class StatsReducerActor() extends Actor with ActorLogging {
 
   import StatsReducerActor._
 
-  var stats = new DoublePiApproximator(0, 0)
+    var stats = new DoublePiApproximator(0, 0)
+//  var stats = BigDecimalPiApproximator(0, 0, 16)
 
   def receive: Receive = {
     case StreamInitialized ⇒
